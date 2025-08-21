@@ -22,6 +22,9 @@ def rename_carpet(new_name , old_carpet):
         print("Error: The directory not exist")
     except FileExistsError:
         print("Error: The directory already exist")
+def escritura_archive(nombre_archive):
+    with open(nombre_archive, "w") as f:
+        f.write("Test")
 def delete_carpet(name_carpet):
     try:
         os.rmdir(name_carpet)
@@ -49,7 +52,7 @@ def main():
                 archive = input("Enter the name of the archive ->")
                 extend = input("Enter the extend archive ->")
                 decision = input("Deseas escribir algo ?")
-                if(decision.lower=="si"):
+                if(decision.lower=="s"):
                     pass
                 else:
                     creation_file(name,archive,extend)
