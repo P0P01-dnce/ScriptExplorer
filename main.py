@@ -33,11 +33,13 @@ def delete_carpet(name_carpet):
 def main():
     try:    
         while True:
-            print("[1] Creation carpet")
-            print("[2] Create file")
-            print("[3] Rename Carpet")
-            print("[4] Delete carpet")
-            print("[5] Exit")
+            print("|--------------------|")
+            print("|[1] Creation carpet |")
+            print("|[2] Create file     |")
+            print("|[3] Rename Carpet   |")
+            print("|[4] Delete carpet   |")
+            print("|[5] Exit            |")
+            print("----------------------")
             option = int(input(">"))
             if option == 1:
                 name = input("Enter the name of the carpet ->")
@@ -46,7 +48,11 @@ def main():
                 name = input("Enter the name of the carpet ->")
                 archive = input("Enter the name of the archive ->")
                 extend = input("Enter the extend archive ->")
-                creation_file(name,archive,extend)
+                decision = input("Deseas escribir algo ?")
+                if(decision.lower=="si"):
+                    pass
+                else:
+                    creation_file(name,archive,extend)
             elif option == 3:
                 old_name = input("Enter the old name ->")
                 new_name = input("Enter the new name ->")
