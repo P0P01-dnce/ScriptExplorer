@@ -42,8 +42,10 @@ def main():
                 break
             elif option == 4:
                 name_carpet = input("Enter the name of the carpet ->")
-                delete_carpet(name_carpet)
-                break
+                if(delete_carpet(name_carpet)):
+                    pass
+                else:
+                    pass
             elif option == 5:
                 print("Exit........")
                 break
