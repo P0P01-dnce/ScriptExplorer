@@ -7,12 +7,21 @@ def creation_carpet(name):
         print(f"The directory {name} exists")
 def creation_file(name,archive,extension):
     name_archive_extension = f"{archive}.{extension}"
+    path = os.path.join(name,name_archive_extension)
     try:
-        os.path.join(name,name_archive_extension)
-        print(f"The archive {name_archive_extension} is created")
+        with open(path, "x") as f:
+            f.write("")
+        print(f"The archive {name_archive_extension} is created in {name}")
     except FileExistsError:
-        print(f"Error the file is not created")
-#def replace_dates():
+        print(f"Error the file exits")
+def rename_carpet(new_name , old_carpet):
+    try:
+        os.rename(old_carpet,new_name)
+        print(f"The directory {old_carpet} has rename ----> {new_name}")
+    except FileNotFoundError:
+        print("Error: The directory not exist")
+    except FileExistsError:
+        print("Error: The directory already exist")
 def delete_carpet(name_carpet):
     try:
         os.rmdir(name_carpet)
@@ -39,7 +48,9 @@ def main():
                 extend = input("Enter the extend archive ->")
                 creation_file(name,archive,extend)
             elif option == 3:
-                break
+                old_name = input("Enter the old name ->")
+                new_name = input("Enter the new name ->")
+                rename_carpet(new_name,old_name)
             elif option == 4:
                 name_carpet = input("Enter the name of the carpet ->")
                 if(delete_carpet(name_carpet)):
